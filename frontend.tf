@@ -5,7 +5,24 @@ resource "aws_instance" "frontend" {
   tags = {
     Name = "frontend"
   }
+
+
+  provisioner "remote-exec" {
+
+    connection {
+      type     = "ssh"
+      user     = "ec2-user"
+      password = "DevOps321"
+      host     = self.public_ip
+    }
+
+    inline = [
+      "pip3.11 install ansible",
+      "ansible-pull -i localhost, -U https://github.com/santoshpawar02/robo-ansible roboshop.yml -e component_name=frontend -e env=prod",
+    ]
+  }
 }
+
 
 resource "aws_route53_record" "frontend" {
   zone_id = "Z05468031XHYNH8NAZQ8Q"
