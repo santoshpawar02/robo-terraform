@@ -1,6 +1,6 @@
 
 variable "vpc_security_group_ids" {
-  default = []"sg-06f911e3169a4e89a"]
+  default = ["sg-06f911e3169a4e89a"]
 }
 
 variable "instances" {
