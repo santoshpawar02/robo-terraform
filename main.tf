@@ -10,7 +10,7 @@ resource "aws_instance" "instance" {
 }
 
 
-resource "aws_route53_record" "records" {
+resource "aws_route53_record" "record" {
   for_each =  var.instances
   zone_id = var.zone_id
   name    = "${each.key}-${var.env}"
