@@ -48,6 +48,6 @@ instances = {
 
 
 
-zone_id = "Z03957642SAJK5S8LZ7FG"
-vpc_security_group_ids= ["sg-037d24433849a0307"]
+zone_id = "Z08185552UDEVF77G5L7L"
+vpc_security_group_ids= ["sg-03505e89f8343a9b4"]
 env = "prod"
