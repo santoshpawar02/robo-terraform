@@ -42,7 +42,7 @@ instances = {
     # }  
   }
 
-
+}
 
 zone_id = "Z07226032FP95BGNZRYRD"
 vpc_security_group_ids= ["sg-0624eaece5119353a"]
