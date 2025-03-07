@@ -18,7 +18,12 @@ resource "aws_route53_record" "record" {
 }
 
 resource "null_resource" "catalogue" {
-  depends_on = [ aws_route53_record.record ]
+  depends_on = [aws_route53_record.record]
+
+  triggers = {
+    instance_id_change = aws_instance.instance.id
+  }
+  
   provisioner "remote-exec" {
 
     connection {
@@ -30,7 +35,7 @@ resource "null_resource" "catalogue" {
 
     inline = [
       "sudo pip3.11 install ansible hvac",
-      "ansible-pull -i localhost, -U https://github.com/santoshpawar02/robo-ansible roboshop.yml -e component_name=${var.name} -e env=${var.env}",
+      "ansible-pull -i localhost, -U https://github.com/santoshpawar02/robo-ansible roboshop.yml -e component_name=${var.name} -e env=${var.env} -e vault_token=${var.vault_token}" ,
     ]
   }
 }

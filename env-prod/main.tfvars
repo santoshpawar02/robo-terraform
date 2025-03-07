@@ -36,14 +36,14 @@ instances = {
       instance_type = "t2.small"
     }  
 
-    rabbitmq = {
-      ami_id = "ami-09c813fb71547fc4f"
-      instance_type = "t2.small"
-    }  
-    payment = {
-      ami_id = "ami-09c813fb71547fc4f"
-      instance_type = "t2.small"
-    }  
+    # rabbitmq = {
+    #   ami_id = "ami-09c813fb71547fc4f"
+    #   instance_type = "t2.small"
+    # }  
+    # payment = {
+    #   ami_id = "ami-09c813fb71547fc4f"
+    #   instance_type = "t2.small"
+    # }  
   }
 
 
