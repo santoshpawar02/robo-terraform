@@ -29,7 +29,7 @@ resource "null_resource" "catalogue" {
     }
 
     inline = [
-      "sudo pip3.11 install ansible",
+      "sudo pip3.11 install ansible hvac",
       "ansible-pull -i localhost, -U https://github.com/santoshpawar02/robo-ansible roboshop.yml -e component_name=${var.name} -e env=${var.env}",
     ]
   }
@@ -39,3 +39,17 @@ resource "null_resource" "catalogue" {
 # sudo yum install -y yum-utils
 # sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 # sudo yum -y install terraform
+# pip3.11 install ansible
+# pip3.11 install hvac
+
+
+
+
+# sudo fdisk /dev/xvda
+# sudo pvcreate /dev/xvda5
+# sudo vgs
+# sudo vgextend RootVG /dev/xvda5
+# sudo vgs
+# sudo lvextend -L +9G /dev/RootVG/homeVol
+# sudo xfs_growfs /dev/RootVG/homeVol
+# sudo df -h
