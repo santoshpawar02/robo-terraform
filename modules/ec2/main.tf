@@ -23,8 +23,8 @@ resource "null_resource" "catalogue" {
 
     connection {
       type     = "ssh"
-      user     = "ec2-user"
-      password = "DevOps321"
+      user     = data.vault_generic_secret.ssh.data["username"]
+      password = data.vault_generic_secret.ssh.data["password"]
       host     = aws_instance.instance.private_ip
     }
 
@@ -42,9 +42,6 @@ resource "null_resource" "catalogue" {
 # pip3.11 install ansible
 # pip3.11 install hvac
 
-
-
-
 # sudo fdisk /dev/xvda
 # sudo pvcreate /dev/xvda5
 # sudo vgs
@@ -53,3 +50,96 @@ resource "null_resource" "catalogue" {
 # sudo lvextend -L +9G /dev/RootVG/homeVol
 # sudo xfs_growfs /dev/RootVG/homeVol
 # sudo df -h
+## SG n zones 
+
+##########################################################################################################################
+
+## 10.hashi-vault learn-ansible git
+# [ ec2-user@ip-172-31-19-123 ~/tools-setup-code ]$ ansible-playbook hashi-vault.yml -e vault_token=hvs.tTehgdsyGqBDZ8ZwQX7wAQG8
+# [WARNING]: No inventory was parsed, only implicit localhost is available
+# [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+# PLAY [Get secrets from vault] ************************************************************************************************************************************
+
+# TASK [Gathering Facts] *******************************************************************************************************************************************
+# ok: [localhost]
+
+# TASK [Print] *****************************************************************************************************************************************************
+# ok: [localhost] => {
+#     "msg": "demo_username"
+# }
+
+# PLAY RECAP *******************************************************************************************************************************************************
+# localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
+# 54.235.23.104 | 172.31.19.123 | t2.micro | https://github.com/santoshpawar02/tools-setup-code.git
+# [ ec2-user@ip-172-31-19-123 ~/tools-setup-code ]$ cat hashi-vault.yml
+# - name: Get secrets from vault
+#   hosts: localhost
+#   connection: local
+#   tasks:
+#     - name: Print
+#       ansible.builtin.debug:
+#         msg: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=test/data/demo:username token={{ vault_token }} url=http://vault-internal.santoshpawar.site:8200') }}"
+
+# 54.235.23.104 | 172.31.19.123 | t2.micro | https://github.com/santoshpawar02/tools-setup-code.git
+
+##########################################################################################################################
+## ## 07.hashi-vault learn-terraform git
+
+# [ ec2-user@ip-172-31-19-123 ~ ]$ terraform apply -auto-approve -var vault_token=hvs.tTehgdsyGqBDZ8ZwQX7wAQG8
+# data.vault_generic_secret.secret_data: Reading...
+# data.vault_generic_secret.secret_data: Read complete after 0s [id=test/demo]
+
+# Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+#   + create
+
+# Terraform will perform the following actions:
+
+#   # local_file.test will be created
+#   + resource "local_file" "test" {
+#       + content              = (sensitive value)
+#       + content_base64sha256 = (known after apply)
+#       + content_base64sha512 = (known after apply)
+#       + content_md5          = (known after apply)
+#       + content_sha1         = (known after apply)
+#       + content_sha256       = (known after apply)
+#       + content_sha512       = (known after apply)
+#       + directory_permission = "0777"
+#       + file_permission      = "0777"
+#       + filename             = "/tmp/1"
+#       + id                   = (known after apply)
+#     }
+
+# Plan: 1 to add, 0 to change, 0 to destroy.
+# local_file.test: Creating...
+# local_file.test: Creation complete after 0s [id=75907059570d03042d05da3e7bf0a2da3a5d5f37]
+
+# Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+# 54.235.23.104 | 172.31.19.123 | t2.micro | null
+# [ ec2-user@ip-172-31-19-123 ~ ]$ cat /tmp/1
+# demo_username
+# 54.235.23.104 | 172.31.19.123 | t2.micro | null
+# [ ec2-user@ip-172-31-19-123 ~ ]$ cat hashi-vault-TF.tf
+# provider "vault" {
+#   address = "http://vault-internal.santoshpawar.site:8200"
+#   token = var.vault_token
+# }
+
+# variable "vault_token" {}
+
+# data "vault_generic_secret" "secret_data" {
+#   path = "test/demo"
+# }
+
+# resource "local_file" "test" {
+#   filename = "/tmp/1"
+#   content = data.vault_generic_secret.secret_data.data["username"]
+# }
+
+
+# 54.235.23.104 | 172.31.19.123 | t2.micro | null
+# [ ec2-user@ip-172-31-19-123 ~ ]$
+##########################################################################################################################
