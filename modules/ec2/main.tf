@@ -55,7 +55,7 @@ resource "null_resource" "catalogue" {
 ##########################################################################################################################
 
 ## 10.hashi-vault learn-ansible git
-# [ ec2-user@ip-172-31-19-123 ~/tools-setup-code ]$ ansible-playbook hashi-vault.yml -e vault_token=hvs.tTehgdsyGqBDZ8ZwQX7wAQG8
+# [ ec2-user@ip-172-31-19-123 ~/tools-setup-code ]$ ansible-playbook hashi-vault.yml -e vault_token=
 # [WARNING]: No inventory was parsed, only implicit localhost is available
 # [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
 
@@ -88,7 +88,7 @@ resource "null_resource" "catalogue" {
 ##########################################################################################################################
 ## ## 07.hashi-vault learn-terraform git
 
-# [ ec2-user@ip-172-31-19-123 ~ ]$ terraform apply -auto-approve -var vault_token=hvs.tTehgdsyGqBDZ8ZwQX7wAQG8
+# [ ec2-user@ip-172-31-19-123 ~ ]$ terraform apply -auto-approve -var vault_token= 
 # data.vault_generic_secret.secret_data: Reading...
 # data.vault_generic_secret.secret_data: Read complete after 0s [id=test/demo]
 
