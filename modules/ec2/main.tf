@@ -59,6 +59,21 @@ resource "null_resource" "catalogue" {
 # sudo lvextend -L +9G /dev/RootVG/homeVol
 # sudo xfs_growfs /dev/RootVG/homeVol
 # sudo df -h
+# cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+# [kubernetes]
+# name=Kubernetes
+# baseurl=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/
+# enabled=1
+# gpgcheck=1
+# gpgkey=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/repodata/repomd.xml.key
+# EOF
+
+# sudo yum install -y kubectl
+# kubectl version
+# kubectl cluster-info
+# echo 'source <(kubectl completion bash)' >>~/.bashrc
+# source ~/.bashrc
+
 ## SG n zones 
 
 ##########################################################################################################################

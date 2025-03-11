@@ -64,6 +64,20 @@ instances = {
 }  
 
 
-zone_id = "Z07571022D4WJ7VPYL3HK"
-vpc_security_group_ids= ["sg-08af3915c0e08b5fe"]
+zone_id = "Z03177761PSH7JBOM6HRC"
+vpc_security_group_ids= ["sg-03fdc2718e88e0298"]
 env = "dev"
+
+eks = {
+  main = {
+    subnets     = ["subnet-01efcf2662574b705", "subnet-0430eb554ed8f7d47"]
+    eks_version = 1.32
+    node_groups = {
+      main = {
+        min_nodes      = 1
+        max_nodes      = 10
+        instance_types = ["t3.medium", "t2.small"]
+      }
+    }
+  }
+}
