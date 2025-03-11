@@ -71,9 +71,16 @@ resource "null_resource" "catalogue" {
 # sudo yum install -y kubectl
 # kubectl version
 # kubectl cluster-info
+# sudo yum install bash-completion -y
+
 # echo 'source <(kubectl completion bash)' >>~/.bashrc
 # source ~/.bashrc
 
+# kubectl get no
+# aws eks update-kubeconfig --name dev
+# cat /home/ec2-user/.kube/config
+
+# curl -sS https://webinstall.dev/k9s | bash
 ## SG n zones 
 
 ##########################################################################################################################
