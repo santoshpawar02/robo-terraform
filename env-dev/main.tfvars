@@ -64,6 +64,6 @@ instances = {
 }  
 
 
-zone_id = "Z07033541Y3JK5ZH6OHIL"
-vpc_security_group_ids= ["sg-0d47b4eabefea8862"]
+zone_id = "Z07571022D4WJ7VPYL3HK"
+vpc_security_group_ids= ["sg-08af3915c0e08b5fe"]
 env = "dev"
