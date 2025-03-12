@@ -81,7 +81,7 @@ resource "null_resource" "catalogue" {
 # cat /home/ec2-user/.kube/config
 
 # curl -sS https://webinstall.dev/k9s | bash
-## SG n zones 
+## SG n zones n Subnets
 
 ##########################################################################################################################
 
