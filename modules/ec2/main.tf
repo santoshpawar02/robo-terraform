@@ -67,19 +67,15 @@ resource "null_resource" "catalogue" {
 # gpgcheck=1
 # gpgkey=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/repodata/repomd.xml.key
 # EOF
-
-# sudo yum install -y kubectl
+# sudo yum install -y kubectl bash-completion
 # kubectl version
-# kubectl cluster-info
-# sudo yum install bash-completion -y
-
 # echo 'source <(kubectl completion bash)' >>~/.bashrc
 # source ~/.bashrc
 
 # kubectl get no
 # aws eks update-kubeconfig --name dev
 # cat /home/ec2-user/.kube/config
-
+# kubectl cluster-info
 # curl -sS https://webinstall.dev/k9s | bash
 ## SG n zones n Subnets
 
