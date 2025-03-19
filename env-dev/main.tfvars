@@ -65,7 +65,7 @@ instances = {
 
 
 zone_id = "Z04737393V7TL5KD0WFM2"
-vpc_security_group_ids= ["sg-536675323g5sd7df4"]
+vpc_security_group_ids= ["sg-345673yff53563665"]
 env = "dev"
 
 eks = {
