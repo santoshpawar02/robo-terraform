@@ -12,6 +12,8 @@ module "ec2" {
   ansible_role           = lookup(each.value, "ansible_role", each.key)
   root_volume_size       = each.value["root_volume_size"]
 }
+# # Above will create 9 EC2 instances. Comment above if not req. 
+
 
 module "eks" {
   for_each    = var.eks
