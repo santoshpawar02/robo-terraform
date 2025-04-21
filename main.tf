@@ -1,17 +1,17 @@
-module "ec2" {
-  for_each = var.instances
-  source   = "./modules/ec2"
+# module "ec2" {
+#   for_each = var.instances
+#   source   = "./modules/ec2"
 
-  ami_id                 = each.value["ami_id"]
-  env                    = var.env
-  instance_type          = each.value["instance_type"]
-  name                   = each.key
-  vpc_security_group_ids = var.vpc_security_group_ids
-  zone_id                = var.zone_id
-  vault_token            = var.vault_token
-  ansible_role           = lookup(each.value, "ansible_role", each.key)
-  root_volume_size       = each.value["root_volume_size"]
-}
+#   ami_id                 = each.value["ami_id"]
+#   env                    = var.env
+#   instance_type          = each.value["instance_type"]
+#   name                   = each.key
+#   vpc_security_group_ids = var.vpc_security_group_ids
+#   zone_id                = var.zone_id
+#   vault_token            = var.vault_token
+#   ansible_role           = lookup(each.value, "ansible_role", each.key)
+#   root_volume_size       = each.value["root_volume_size"]
+# }
 # # Above will create 9 EC2 instances. Comment above if not req. 
 
 
