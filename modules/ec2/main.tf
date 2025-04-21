@@ -73,6 +73,11 @@ resource "null_resource" "catalogue" {
 # source ~/.bashrc
 
 
+# git clone https://github.com/santoshpawar02/tools-setup-code.git
+#  git clone https://github.com/santoshpawar02/robo-terraform.git
+# git clone https://github.com/santoshpawar02/40-day.git
+
+
 # aws eks update-kubeconfig --name dev
 # cat /home/ec2-user/.kube/config
 # kubectl cluster-info
