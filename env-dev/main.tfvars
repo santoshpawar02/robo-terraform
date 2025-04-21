@@ -79,5 +79,9 @@ eks = {
         instance_types = ["t3.medium", "t2.small"]
       }
     }
+    addons = {
+      metrics-server = {}
+      #eks-pod-identity-agent = {}
+    }
   }
 }

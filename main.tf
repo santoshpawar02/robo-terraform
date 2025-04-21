@@ -22,4 +22,6 @@ module "eks" {
   eks_version = each.value["eks_version"]
   subnets     = each.value["subnets"]
   node_groups = each.value["node_groups"]
+  addons      = each.value["addons"]
+
 }
