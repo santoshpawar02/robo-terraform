@@ -64,24 +64,26 @@ instances = {
 }  
 
 
-zone_id = "Z00374123CL7NHX4VMGRU"
-vpc_security_group_ids= ["sg-05d113776f4bb3fcb"]
+zone_id = "Z0680877TQEE3QCT32SO"
+vpc_security_group_ids= ["sg-0838ceabe2758ce14"]
 env = "dev"
 
 eks = {
   main = {
-    subnets     = ["subnet-06433cc28ce1f8566", "subnet-0f7b241eca30e76a2"]
+    subnets     = ["subnet-0ef5ea9860cee8a90", "subnet-0cf7c9974dc74ce16"]
     eks_version = 1.32
     node_groups = {
       main = {
-        min_nodes      = 1
-        max_nodes      = 10
+        min_nodes      = 3
+        max_nodes      = 5
         instance_types = ["t3.medium", "t2.small"]
       }
-    }
+    }  
+
     addons = {
-      metrics-server = {}
+      #metrics-server = {}
       #eks-pod-identity-agent = {}
     }
+
   }
 }

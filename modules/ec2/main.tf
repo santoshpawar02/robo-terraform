@@ -72,17 +72,21 @@ resource "null_resource" "catalogue" {
 # echo 'source <(kubectl completion bash)' >>~/.bashrc
 # source ~/.bashrc
 
-
 # git clone https://github.com/santoshpawar02/tools-setup-code.git
-#  git clone https://github.com/santoshpawar02/robo-terraform.git
+# git clone https://github.com/santoshpawar02/robo-terraform.git
 # git clone https://github.com/santoshpawar02/40-day.git
-
 
 # aws eks update-kubeconfig --name dev
 # cat /home/ec2-user/.kube/config
 # kubectl cluster-info
 # curl -sS https://webinstall.dev/k9s | bash
 # kubectl get no
+
+#  git clone https://github.com/kubernetes/autoscaler.git
+# cd  autoscaler/vertical-pod-autoscaler/hack/
+# ./vpa-up.sh
+# cd 
+
 # # SG n zones n Subnets
 # ##EKS does not support creating control plane instances in us-east-1e, the targeted availability zone. Retry cluster creation using control plane subnets that span at least two of these availability zones: us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1f. 
 ##########################################################################################################################
