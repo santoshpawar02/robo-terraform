@@ -76,6 +76,18 @@ resource "null_resource" "catalogue" {
 # git clone https://github.com/santoshpawar02/robo-terraform.git
 # git clone https://github.com/santoshpawar02/40-day.git
 
+# mkae sure to map the role to EC2
+# cd tools-setup-code/
+# make infra
+# make ansible tool_name=vault
+# Go to URL http://vault.santoshpawar.site:8200/ 
+# Download Keys, unseal
+# make secrets vault_token=hvs..... 
+
+# cd robo-terraform/
+# make dev-apply vault_token=hvs..... ## will create EKS cluster
+
+
 # aws eks update-kubeconfig --name dev
 # cat /home/ec2-user/.kube/config
 # kubectl cluster-info
