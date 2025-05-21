@@ -72,11 +72,12 @@ resource "null_resource" "catalogue" {
 # echo 'source <(kubectl completion bash)' >>~/.bashrc
 # source ~/.bashrc
 
+# mkae sure to map the role to EC2
+
 # git clone https://github.com/santoshpawar02/tools-setup-code.git
 # git clone https://github.com/santoshpawar02/robo-terraform.git
 # git clone https://github.com/santoshpawar02/40-day.git
 
-# mkae sure to map the role to EC2
 # cd tools-setup-code/
 # make infra
 # make ansible tool_name=vault
@@ -98,6 +99,11 @@ resource "null_resource" "catalogue" {
 # cd  autoscaler/vertical-pod-autoscaler/hack/
 # ./vpa-up.sh
 # cd 
+
+# curl -L -O https://get.helm.sh/helm-v3.17.2-linux-amd64.tar.gz
+# tar -xf helm-v3.17.2-linux-amd64.tar.gz
+# cd linux-amd64/
+# sudo cp helm /usr/bin/
 
 # # SG n zones n Subnets
 # ##EKS does not support creating control plane instances in us-east-1e, the targeted availability zone. Retry cluster creation using control plane subnets that span at least two of these availability zones: us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1f. 
