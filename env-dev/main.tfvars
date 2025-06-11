@@ -81,8 +81,8 @@ eks = {
     }  
 
     addons = {
-      #metrics-server = {}
-      #eks-pod-identity-agent = {}
+      metrics-server = {}
+      eks-pod-identity-agent = {}
     }
 
   }
