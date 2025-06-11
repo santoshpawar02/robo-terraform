@@ -64,13 +64,13 @@ instances = {
 }  
 
 
-zone_id = "Z01890483QZ973ISPZQBO"
-vpc_security_group_ids= ["sg-0d0523dbd15d20a24"]
+zone_id = "Z066728598KAECMCDZDU"
+vpc_security_group_ids= ["sg-0d7d2dbb170c792e2"]
 env = "dev"
 
 eks = {
   main = {
-    subnets     = ["subnet-0f10014fe8a9d8f66", "subnet-0600f17f86a512c58"]
+    subnets     = ["subnet-032bc14aab37f3daa", "subnet-003b7a76caf1e98dd"]
     eks_version = 1.32
     node_groups = {
       main = {
